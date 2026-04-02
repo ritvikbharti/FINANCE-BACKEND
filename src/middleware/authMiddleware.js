@@ -16,6 +16,17 @@ export const protect = async (req,res,next) {
         if(!user){
             return sendResponse(res,401,false,"User not found");
         }
+
+        if(!user.isActive){
+         return sendResponse(res, 403, false, "User is inactive");
+
+        }
+         req.user = user;
+    next();
+    }
+    catch(err){
+            return sendResponse(res, 401, false, "Invalid token");
+
     }
 
-}
+};
