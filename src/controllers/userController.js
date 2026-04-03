@@ -5,11 +5,11 @@ import { sendResponse } from "../utils/response.js";
 
 
 const createToken = (id)=>{
-    return jwt.sign({id},process.env.JET_SECRET, {expires: "7d"});
+    return jwt.sign({id},process.env.JWT_SECRET, {expiresIn: "7d"});
 
 };
 
-export const registerUSer = async (req,res)=>{
+export const registerUser = async (req,res)=>{
     const {name,email,password,role} = req.body;
 
     if(!name || !email || !password){

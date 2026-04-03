@@ -1,6 +1,8 @@
-import User from "../models/User";
+import jwt from "jsonwebtoken";
 
-import { sendResponse } from "../utils/response";
+import User from "../models/User.js";
+
+import { sendResponse } from "../utils/response.js";
 
 export const protect = async (req,res,next)=> {
     try{
@@ -10,7 +12,7 @@ export const protect = async (req,res,next)=> {
             return sendResponse(res,401,false,"Token missing");
         }
 
-        const decoded = JsonWebTokenError.verify(token,process.env.JWT_SECRET);
+        const decoded = jwt.verify(token,process.env.JWT_SECRET);
         const user = await User.findById(decoded.id).select("-password");
 
         if(!user){
