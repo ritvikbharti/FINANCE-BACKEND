@@ -2,7 +2,7 @@ import User from "../models/User";
 
 import { sendResponse } from "../utils/response";
 
-export const protect = async (req,res,next) {
+export const protect = async (req,res,next)=> {
     try{
         const token = req.headers.authorization?.split(" ")[1];
 
