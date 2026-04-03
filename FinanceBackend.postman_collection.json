@@ -49,6 +49,23 @@
       "response": []
     },
     {
+      "name": "Get All Users (Admin only)",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{admintoken}}" }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/users",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api","users"]
+        }
+      },
+      "response": []
+    },
+    {
       "name": "Create Record (Admin only)",
       "request": {
         "method": "POST",
@@ -144,18 +161,69 @@
       "response": []
     },
     {
+      "name": "Dashboard Summary",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{analysttoken}}" }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/dashboard/summary",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api","dashboard","summary"]
+        }
+      },
+      "response": []
+    },
+    {
       "name": "Dashboard Category Totals",
       "request": {
         "method": "GET",
         "header": [
-          { "key": "Authorization", "value": "Bearer {{admintoken}}" }
+          { "key": "Authorization", "value": "Bearer {{analysttoken}}" }
         ],
         "url": {
-          "raw": "http://localhost:5000/api/dashboard/category-total",
+          "raw": "http://localhost:5000/api/dashboard/category-totals",
           "protocol": "http",
           "host": ["localhost"],
           "port": "5000",
-          "path": ["api","dashboard","category-total"]
+          "path": ["api","dashboard","category-totals"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Dashboard Recent Activity",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{viewertoken}}" }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/dashboard/recent",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api","dashboard","recent"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Dashboard Monthly Trends",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{analysttoken}}" }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/dashboard/monthly-trends",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api","dashboard","monthly-trends"]
         }
       },
       "response": []
